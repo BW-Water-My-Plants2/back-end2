@@ -1,14 +1,14 @@
-exports.up = function(knex) {
+exports.up = function(knex, Promise) {
     return knex.schema.createTable("users", tbl => {
       tbl.increments();
       tbl.string("name", 128).notNullable();
       tbl.string("username", 128).notNullable().unique();
       tbl.string("password", 128).notNullable();
       tbl.string("email", 128).notNullable();
-      tbl.string("phone number", 11).notNullable();
+      tbl.string("phonenumber", 11).notNullable();
     });
   };
   
-  exports.down = function(knex) {
+  exports.down = function(knex, Promise) {
     return knex.schema.dropTableIfExists("users");
   };
