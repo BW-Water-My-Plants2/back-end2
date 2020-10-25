@@ -6,7 +6,7 @@ const db = require("../data/dbConfig.js");
 
 const authenticate = require("../auth/authenticate-middleware.js");
 const authRouter = require("../auth/auth-router.js");
-const plantsRouter = require("../plants/plants-router.js.js");
+const plantsRouter = require("../routers/plants/plants-router.js");
 
 const server = express();
 
