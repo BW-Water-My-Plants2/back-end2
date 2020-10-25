@@ -1,27 +1,23 @@
 const db = require("../../data/dbConfig.js");
 
 function find(){
-    return db("plants")
+    return db("plants");
 };
 
-function findBy(id) {
+function findBy(filter) {
     return db("plants")
-        .where(filter)
-        .orderBy("id");
+        .where(filter);
 }
 
 function findById(id) {
     return db("plants")
         .where({ id })
         .first();
-}
+}7
 
-function add(value){
-    return db("plants")
-        .insert(value, "id")
-        .then(id => {
-            return findById(id)
-        });
+async function add(plant){
+    const [id] = await db("plants").insert(plant);
+    return findById(id);
 }
 
 function update(value, id){

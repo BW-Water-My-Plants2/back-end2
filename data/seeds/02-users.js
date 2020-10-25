@@ -4,7 +4,6 @@ exports.seed = function(knex) {
         .then(function() {
             return knex("users").insert([
                 {
-                    id: 1,
                     name: "Maisie Adkins",
                     username: "maisieadkins",
                     password: "password123",
@@ -12,7 +11,6 @@ exports.seed = function(knex) {
                     phonenumber: 123456789
                 },
                 {
-                    id: 2,
                     name: "Aleyna Collins",
                     username: "aleynacollins",
                     password: "123password",

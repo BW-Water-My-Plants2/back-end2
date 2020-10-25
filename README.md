@@ -1,10 +1,9 @@
 ### Goals
-- [ ] Use Express' built-in router to build and test a modular server API with Postman.
-- [ ] Implement authentication & custom middleware
-- [ ] Use a RDBMS from an API
-- [ ] Create an authentication workflow using sessions or JSON with web tokens
+- [ X ] Use Express' built-in router to build and test a modular server API with Postman.
+- [ X ] Implement authentication & custom middleware
+- [ X ] Create an authentication workflow using sessions or JSON with web tokens
 - [ ] Write tests for backend endpoints (the end point returns appropriate data) based on input
-- [ ] Use SQL to create and query a local database, table schemas, configure scripted schema migrations & seed scripts.
+- [ X ] Use SQL to create and query a local database, table schemas, configure scripted schema migrations & seed scripts.
 
 ### Endpoints
 

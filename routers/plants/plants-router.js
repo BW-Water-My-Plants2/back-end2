@@ -1,7 +1,8 @@
 const express = require("express");
 const helmet = require("helmet");
-const router = express.Router();
 const db = require("./plants-model.js");
+
+const router = express.Router();
 
 // retrieve list of plants
 router.get("/", (req, res) => {
@@ -17,10 +18,9 @@ router.get("/", (req, res) => {
 
 // retrieve specific plant (by id)
 router.get("/:id", (req, res) => {
-    const id = req.params;
+    const { id } = req.params;
 
     db.findById(id)
-        .first()
         .then(plant => {
             res.status(200).json({ data: plant })
         })
@@ -35,14 +35,7 @@ router.post("/", (req, res) => {
 
     db.add(newPlant)
         .then(plant => {
-            db("plants").where(id)
-            .first()
-            .then(account => {
-                res.status(200).json({ data: plant })
-            })
-            .catch(error => {
-                console.log(error)
-            })
+            res.status(201).json(plant);
         })
         .catch(error => {
             console.log(error)
@@ -52,27 +45,29 @@ router.post("/", (req, res) => {
 
 // update existing plant
 router.put("/:id", (req, res) => {
-    const id = req.params;
+    const { id } = req.params;
     const changes = req.body;
 
     db.findById(id)
-        .update(changes)
-        .then(count => {
-            if(count > 0) {
-                res.status(200).json({ data: count })
+        .then(plant => {
+            if(plant) {
+                db.update(changes, id)
+                    .then(update => {
+                        res.status(200).json(update)
+                    })
             } else {
                 res.status(404).json({ errorMessage: "Could not find plant." })
             }
         })
         .catch(error => {
             console.log(error)
-            res.status(500).json({ message : "Could not update plant." })
+            res.status(500).json({ message : "Error updating plant." })
         })
 });
 
-// delete existing user
+// delete existing plant
 router.delete("/:id", (req, res) => {
-    const id = req.params;
+    const { id } = req.params;
 
     db.findById(id)
         .del()
