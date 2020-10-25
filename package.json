@@ -1,0 +1,30 @@
+{
+  "name": "back-end2",
+  "version": "1.0.0",
+  "description": ".",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "start": "nodemon server.js",
+    "test": "cross-env DB_ENV=testing jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BW-Water-My-Plants2/back-end2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BW-Water-My-Plants2/back-end2/issues"
+  },
+  "homepage": "https://github.com/BW-Water-My-Plants2/back-end2#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^4.1.1",
+    "knex": "^0.21.7",
+    "nodemon": "^2.0.6",
+    "sqlite3": "^5.0.0"
+  }
+}
