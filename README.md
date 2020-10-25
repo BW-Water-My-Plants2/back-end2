@@ -25,8 +25,8 @@
 | --- | --- | --- | --- | --- |
 | id | integer | yes | yes | User's ID |
 | name | string | yes | no | User's full name |
-| username | string | yes | yes | User's username (max 20 characters) |
-| password | string | yes | no | User's password (max 20 characters) |
+| username | string | yes | yes | User's username |
+| password | string | yes | no | User's password |
 | email | string | no | yes | User's email |
 | phone number | integer | no | yes | User's phone number |
 
