@@ -20,21 +20,21 @@ describe("server.js", () => {
             expect(res.type).toBe("application/json");
         });
     });
-    // describe("registering new user", () => {
-    //     it("should return with status code 201 when adding new users", async () => {
-    //         await db("users").truncate();
-    //         const res = await request(server)
-    //             .post("/api/auth/register")
-    //             .send(testUser);
-    //         expect(res.status).toBe(201);
-    //     });
-    //     it("should return status code 500 with invalid user", async() => {
-    //         const res = await request(server)
-    //             .post("/api/auth/register")
-    //             .send({ user: "test", pass: "test" });
-    //         expect.res(status).toBe(500);
-    //     });
-    // });
+    describe("registering new user", () => {
+        it("should return with status code 201 when adding new users", async () => {
+            await db("users").truncate();
+            const res = await request(server)
+                .post("/api/auth/register")
+                .send(testUser);
+            expect(res.status).toBe(201);
+        });
+        it("should return status code 500 with invalid user", async() => {
+            const res = await request(server)
+                .post("/api/auth/register")
+                .send({ user: "test", pass: "test" });
+            expect.res(status).toBe(500);
+        });
+    });
     describe("login with user", () => {
         it("should return status code 200 with test user", async() => {
             const res = await request(server)
